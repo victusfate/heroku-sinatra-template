@@ -1,0 +1,79 @@
+* { margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: underline;
+    color: red;
+}
+
+a:hover {
+    color: red;
+}
+
+#welcometext {
+    font-size: 14pt;
+    text-align: justify;
+    width:80%;
+    color:black;
+}
+
+#darken {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 110%; 
+    background-color: #000;
+    background-image: url( /images/bigloader.gif); 
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: alpha(opacity = 90);
+    opacity: 0.9;
+    display: none;
+}
+
+button {
+border: 0 none;
+cursor: pointer;
+font-weight: bold;
+padding: 0 15px 0 0;
+text-align: center;
+height: 30px;
+line-height: 30px;
+width: auto;
+}
+
+button.rounded {
+background: transparent url( /images/btn_right.png ) no-repeat scroll right top;
+clear: left;
+font-size: 0.8em;
+}
+
+button span {
+display: block;
+padding: 0 0 0 15px;
+position: relative;
+white-space: nowrap;
+height: 30px;
+line-height: 30px;
+}
+
+button.rounded span {
+background: transparent url( /images/btn_left.png ) no-repeat scroll left top;
+color: #FFFFFF;
+}
+
+button.rounded:hover {
+background-position: 100% -30px;
+}
+
+button.rounded:hover span {
+background-position: 0% -30px;
+}
+
+button:-moz-focus-inner {
+border: none;
+}

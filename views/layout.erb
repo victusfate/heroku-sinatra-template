@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <script type="text/javascript" src="/javascripts/jquery-1.4.2.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/site.css"/>
+
+  <title><%= @title || 'myapp' %></title>
+
+  <script type="text/javascript" language="javascript">
+    function setCookie(name,val,zpath,zexpires)
+    {
+      yo_cookie(name,val,{ path: zpath,expires: zexpires });
+      window.location.reload();
+    }
+    function deleteCookie(name,zpath)
+    {
+      yo_cookie(name, null, { path:zpath,expires: null});
+      window.location.reload();
+    }
+/**
+ * jQuery Cookie plugin
+ *
+ * Copyright (c) 2010 Klaus Hartl (stilbuero.de)
+ * Dual licensed under the MIT and GPL licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ *
+ */
+    function yo_cookie(key, value, options) {
+//    alert("inside jquery cookie plugin key "+key+" value "+value+" path "+options.path+" expires "+options.expires)
+
+    // key and value given, set cookie...
+    if (arguments.length > 1 && (value === null || typeof value !== "object")) {
+        options = jQuery.extend({}, options);
+
+        if (value === null) {
+            options.expires = -1;
+        }
+
+        if (typeof options.expires === 'number') {
+            var days = options.expires, t = options.expires = new Date();
+            t.setDate(t.getDate() + days);
+        }
+
+        return (document.cookie = [
+            encodeURIComponent(key), '=',
+            options.raw ? String(value) : encodeURIComponent(String(value)),
+            options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+            options.path ? '; path=' + options.path : '',
+            options.domain ? '; domain=' + options.domain : '',
+            options.secure ? '; secure' : ''
+        ].join(''));
+    }
+
+    // key and possibly options given, get cookie...
+    options = value || {};
+    var result, decode = options.raw ? function (s) { return s; } : decodeURIComponent;
+    return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null;
+};
+</script>
+</head>
+<body>
+  <div id="darken"></div>
+
+  <%= yield %>
+</body>
+</html>
+
