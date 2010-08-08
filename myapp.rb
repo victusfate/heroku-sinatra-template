@@ -43,6 +43,11 @@ end
 
 DataMapper.auto_upgrade!
 
+require "sinatra/reloader" if development?
+configure { |c| c.also_reload "*.rb" } if development?
+
+
+
 before do
 end
 

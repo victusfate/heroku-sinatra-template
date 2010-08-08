@@ -9,3 +9,5 @@ gem 'json'
 gem 'sinatra'
 gem 'httparty'
 gem 'sinatra-static-assets'
+gem 'sinatra-reloader'
+
