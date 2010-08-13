@@ -29,9 +29,13 @@ a:hover {
 }
 
 #welcometext {
+    background-image:
+      -moz-linear-gradient(top,#00BFFF,#00ff00); /* cyan 00FFFF */
+    background-image:
+      -webkit-gradient(linear, left top,left bottom,from(#00BFFF),to(#00ff00));
     font-size: 20pt;
     text-align: justify;
-    width:80%;
+    width:100%;
     color:black;
 /*    box-shadow: 0 0 20px black, 20px 15px 30px yellow, -20px 15px 30px lime, -20px -15px 30px blue, 20px -15px 30px red; */
 /*    box-shadow: -10px -10px 0px #000; border-radius: 5px; padding: 5px 5px 5px 15px; */
